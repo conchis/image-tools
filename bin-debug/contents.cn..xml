@@ -1,0 +1,207 @@
+﻿<outline>
+    <item title="Shuilu Book">
+    	<item title="前">
+        	<item resource="Shuilu_book_001" title="封面正面" />
+        	<item resource="Shuilu_book_002" title="封面反面" />
+        	<item resource="Shuilu_book_003" title="书名页" />
+        	<item resource="Shuilu_book_004" title="空白页" />
+        	<item resource="Shuilu_book_005" title="序 I" />
+        	<item resource="Shuilu_book_006" title="序 II" />
+     	</item>
+     	<item title="照片">
+        	<item id="start" resource="Shuilu_book_007" title="照片 1" />
+        	<item resource="Shuilu_book_008" title="照片 2" />
+        	<item resource="Shuilu_book_009" title="照片 3" />
+        	<item resource="Shuilu_book_010" title="照片 4" />
+        	<item resource="Shuilu_book_011" title="照片 5" />
+        	<item resource="Shuilu_book_012" title="照片 6" />
+        	<item resource="Shuilu_book_013" title="照片 7" />
+        	<item resource="Shuilu_book_014" title="照片 8" />
+        	<item resource="Shuilu_book_015" title="照片 9" />
+        	<item resource="Shuilu_book_016" title="照片 10" />
+        	<item resource="Shuilu_book_017" title="照片 11" />
+        	<item resource="Shuilu_book_018" title="照片 12" />
+        	<item resource="Shuilu_book_019" title="照片 13" />
+        	<item resource="Shuilu_book_020" title="照片 14" />
+        	<item resource="Shuilu_book_021" title="照片 15" />
+        	<item resource="Shuilu_book_022" title="照片 16" />
+        	<item resource="Shuilu_book_023" title="照片 17" />
+        	<item resource="Shuilu_book_024" title="照片 18" />
+     	</item>
+     	<item title="目录">
+        	<item resource="Shuilu_book_025" title="目录 1" />
+        	<item resource="Shuilu_book_026" title="目录 2" />
+        	<item resource="Shuilu_book_027" title="目录 3" />
+        	<item resource="Shuilu_book_028" title="空白页" />
+     	</item>
+     	<item title="第１章">
+        	<item resource="Shuilu_book_029" title="1页" />
+        	<item resource="Shuilu_book_030" title="2页" />
+        	<item resource="Shuilu_book_031" title="3页" />
+        	<item resource="Shuilu_book_032" title="4页" />
+        	<item resource="Shuilu_book_033" title="5页" />
+        	<item resource="Shuilu_book_034" title="6页" />
+     	</item>
+     	<item title="第2章">
+        	<item resource="Shuilu_book_035" title="7页" />
+        	<item resource="Shuilu_book_036" title="8页" />
+        	<item resource="Shuilu_book_037" title="9页" />
+        	<item resource="Shuilu_book_038" title="10页" />
+        	<item resource="Shuilu_book_039" title="11页" />
+        	<item resource="Shuilu_book_040" title="12页" />
+        	<item resource="Shuilu_book_041" title="13页" />
+     	</item>
+     	<item title="第3章">
+        	<item resource="Shuilu_book_042" title="14页" />
+        	<item resource="Shuilu_book_043_B" title="15页" />
+        	<item resource="Shuilu_book_044_A" title="16页" />
+     	</item>
+     	<item title="第4章">
+        	<item resource="Shuilu_book_044_B" title="17页" />
+        	<item resource="Shuilu_book_045_A" title="18页" />
+        	<item resource="Shuilu_book_045_B" title="19页" />
+        	<item resource="Shuilu_book_046_A" title="20页" />
+        	<item resource="Shuilu_book_046_B" title="21页" />
+        	<item resource="Shuilu_book_047_A" title="22页" />
+        	<item resource="Shuilu_book_047_B" title="23页" />
+        	<item resource="Shuilu_book_048_A" title="24页" />
+        	<item resource="Shuilu_book_048_B" title="25页" />
+        	<item resource="Shuilu_book_049_A" title="26页" />
+        	<item resource="Shuilu_book_049_B" title="27页" />
+        	<item resource="Shuilu_book_050_A" title="28页" />
+     	</item>
+     	<item title="第5章">
+     		<item resource="Shuilu_book_050_B" title="29页" />
+        	<item resource="Shuilu_book_051_A" title="30页" />
+        	<item resource="Shuilu_book_051_B" title="31页" />
+        	<item resource="Shuilu_book_052_A" title="32页" />
+        	<item resource="Shuilu_book_052_B" title="33页" />
+        	<item resource="Shuilu_book_053_A" title="34页" />
+        	<item resource="Shuilu_book_053_B" title="35页" />
+        	<item resource="Shuilu_book_054_A" title="36页" />
+     	</item>
+     	<item title="第6章">
+        	<item resource="Shuilu_book_054_B" title="37页" />
+        	<item resource="Shuilu_book_055_A" title="38页" />
+        	<item resource="Shuilu_book_055_B" title="39页" />
+        	<item resource="Shuilu_book_056_A" title="40页" />
+     	</item>
+     	<item title="第7章">
+        	<item resource="Shuilu_book_056_B" title="41页" />
+        	<item resource="Shuilu_book_057_A" title="42页" />
+        	<item resource="Shuilu_book_057_B" title="43页" />
+     	</item>
+     	<item title="第8章">
+        	<item resource="Shuilu_book_058_A" title="44页" />
+        	<item resource="Shuilu_book_058_B" title="45页" />
+        	<item resource="Shuilu_book_059_A" title="46页" />
+        	<item resource="Shuilu_book_059_B" title="47页" />
+        	<item resource="Shuilu_book_060_A" title="48页" />
+        	<item resource="Shuilu_book_060_B" title="49页" />
+        	<item resource="Shuilu_book_061_A" title="50页" />
+        	<item resource="Shuilu_book_061_B" title="51页" />
+        	<item resource="Shuilu_book_062_A" title="52页" />
+        	<item resource="Shuilu_book_062_B" title="53页" />
+        	<item resource="Shuilu_book_063_A" title="54页" />
+        	<item resource="Shuilu_book_063_B" title="55页" />
+        	<item resource="Shuilu_book_064_A" title="56页" />
+        	<item resource="Shuilu_book_064_B" title="57页" />
+        	<item resource="Shuilu_book_065_A" title="58页" />
+        	<item resource="Shuilu_book_065_B" title="59页" />
+        	<item resource="Shuilu_book_066_A" title="60页" />
+        	<item resource="Shuilu_book_066_B" title="61页" />
+     	</item>
+     	<item title="第9章">
+        	<item resource="Shuilu_book_067_A" title="62页" />
+        	<item resource="Shuilu_book_067_B" title="63页" />
+        	<item resource="Shuilu_book_068_A" title="64页" />
+        	<item resource="Shuilu_book_068_B" title="65页" />
+        	<item resource="Shuilu_book_069_A" title="66页" />
+        	<item resource="Shuilu_book_069_B" title="67页" />
+        	<item resource="Shuilu_book_070_A" title="68页" />
+        	<item resource="Shuilu_book_070_B" title="69页" />
+        	<item resource="Shuilu_book_071_A" title="70页" />
+        	<item resource="Shuilu_book_071_B" title="71页" />
+        	<item resource="Shuilu_book_072_A" title="72页" />
+        	<item resource="Shuilu_book_072_B" title="73页" />
+        	<item resource="Shuilu_book_073_A" title="74页" />
+     	</item>
+     	<item title="第１0章">
+        	<item resource="Shuilu_book_073_B" title="75页" />
+        	<item resource="Shuilu_book_074_A" title="76页" />
+        	<item resource="Shuilu_book_074_B" title="77页" />
+     	</item>
+     	<item title="第１1章">
+        	<item resource="Shuilu_book_075_A" title="78页" />
+        	<item resource="Shuilu_book_075_B" title="79页" />
+        	<item resource="Shuilu_book_076_A" title="80页" />
+        	<item resource="Shuilu_book_076_B" title="81页" />
+     	</item>
+     	<item title="第１2章">
+        	<item resource="Shuilu_book_077_A" title="82页" />
+        	<item resource="Shuilu_book_077_B" title="83页" />
+        	<item resource="Shuilu_book_078_A" title="84页" />
+        	<item resource="Shuilu_book_078_B" title="85页" />
+        	<item resource="Shuilu_book_079_A" title="86页" />
+     	</item>
+     	<item title="第１3章">
+        	<item resource="Shuilu_book_079_B" title="87页" />
+        	<item resource="Shuilu_book_080_A" title="88页" />
+        	<item resource="Shuilu_book_080_B" title="89页" />
+        	<item resource="Shuilu_book_081_A" title="90页" />
+        	<item resource="Shuilu_book_081_B" title="91页" />
+     	</item>
+     	<item title="第１4章">
+        	<item resource="Shuilu_book_082_A" title="92页" />
+        	<item resource="Shuilu_book_082_B" title="93页" />
+        	<item resource="Shuilu_book_083_A" title="94页" />
+        	<item resource="Shuilu_book_083_B" title="95页" />
+        	<item resource="Shuilu_book_084_A" title="96页" />
+        	<item resource="Shuilu_book_084_B" title="97页" />
+     	</item>
+     	<item title="第１5章">
+        	<item resource="Shuilu_book_085_A" title="98页" />
+        	<item resource="Shuilu_book_085_B" title="99页" />
+        	<item resource="Shuilu_book_086_A" title="100页" />
+        	<item resource="Shuilu_book_086_B" title="101页" />
+     	</item>
+     	<item title="第１6章">
+        	<item resource="Shuilu_book_087_A" title="102页" />
+        	<item resource="Shuilu_book_087_B" title="103页" />
+        	<item resource="Shuilu_book_088_A" title="104页" />
+        	<item resource="Shuilu_book_088_B" title="105页" />
+        	<item resource="Shuilu_book_089_A" title="106页" />
+        	<item resource="Shuilu_book_089_B" title="107页" />
+     	</item>
+     	<item title="第１7章">
+        	<item resource="Shuilu_book_090_A" title="108页" />
+        	<item resource="Shuilu_book_090_B" title="109页" />
+        	<item resource="Shuilu_book_091_A" title="110页" />
+        	<item resource="Shuilu_book_091_B" title="111页" />
+        	<item resource="Shuilu_book_092_A" title="112页" />
+        	<item resource="Shuilu_book_092_B" title="113页" />
+     	</item>
+     	<item title="第１8章">
+        	<item resource="Shuilu_book_093_A" title="114页" />
+        	<item resource="Shuilu_book_093_B" title="115页" />
+        	<item resource="Shuilu_book_094_A" title="116页" />
+        	<item resource="Shuilu_book_094_B" title="117页" />
+        	<item resource="Shuilu_book_095_A" title="118页" />
+        	<item resource="Shuilu_book_095_B" title="119页" />
+        	<item resource="Shuilu_book_096_A" title="120页" />
+        	<item resource="Shuilu_book_096_B" title="121页" />
+        	<item resource="Shuilu_book_097_A" title="122页" />
+        	<item resource="Shuilu_book_097_B" title="123页" />
+        	<item resource="Shuilu_book_098_A" title="124页" />
+        	<item resource="Shuilu_book_098_B" title="125页" />
+        	<item resource="Shuilu_book_099_A" title="126页" />
+        	<item resource="Shuilu_book_099_B" title="127页" />
+     	</item>
+     	<item title="后">
+        	<item resource="Shuilu_book_100_A" title="空白页" />
+        	<item resource="Shuilu_book_100_B" title="空白页" />
+        	<item resource="Shuilu_book_101_A" title="封底反面" />
+        	<item resource="Shuilu_book_101_B" title="封底正面" />
+     	</item>
+    </item>
+</outline>

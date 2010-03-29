@@ -1,0 +1,79 @@
+Page Dial
+
+page_dial.swf is a small Flash-based control for browsing quickly through a collection of web pages. When the control starts up it retrieves an XML file that describes the outline listing the pages to be displayed.
+
+This document assumes that the user is familiar with and understands how to embed Flash swf controls in their web page, including security restrictions.
+
+Note that page dial creates a visual marker for each page in the collection. The current release cannot be reliably used for any collection larger than the number of markers that can reasonably be displayed on the control.
+
+A. Query Arguments
+
+Like other flash movies, arguments are passed through the .swf file's query parameter. page_dial accepts the following query parameters:
+
+outline     The URL of the XML file describing the outline to be displayed by
+            the control. The format of this XML file is described below. Note
+            that if this query parameter is not supplied page_dial will load
+            a file "contents.xml" from the directory where the swf is located.
+            
+id          The id in the outline XML that identifies the starting page for the 
+            page_dial control.
+            
+B. XML Format for The Outline
+
+The outline read by page_dial has the following format:
+
+<outline>
+    <item title="Shuilu Book">
+    	<item title="前">
+        	<item resource="Shuilu_book_001" title="封面正面" />
+        	<item resource="Shuilu_book_002" title="封面反面" />
+        	<item resource="Shuilu_book_003" title="书名页" />
+     	</item>
+     	<item title="照片">
+        	<item resource="Shuilu_book_007" title="照片 1" />
+        	<item resource="Shuilu_book_008" title="照片 2" />
+        	<item resource="Shuilu_book_009" title="照片 3" />
+     	</item>
+    </item>
+</outline>
+
+1. The root element of the XML file should be <outline> .. </outline>. Any attributes will be ignored.
+
+2. Within the outline element, there should be a single item element. Note that item elements can and often do contain one or more nested item elements. Item elements may be nested to any depth.
+
+3. The following attributes are recognized by item elements:
+
+title       The title of the item as presented in the page_dial.
+
+resource    The URL of a resource or any other string that will be passed
+            to the openPage javascript routine when the item is selected.
+            
+id          A unique tag that may be passed in as a query parameter to 
+            specify the initially selected page when starting the page
+            dial.
+            
+C. The openPage JavaScript Routine
+
+When the user selects a page using the page dial the control will cause the 'openPage' JavaScript function to be called in the surrounding HTML page environment. The openPage function is passed the corresponding resource string from the XML element. The openPage function will usually replace part of the web page in response to the user's selection. For example the following openPage implementation replaces the contents of a <div></div> element with id "viewer" by HTML that invokes a flash image viewer:
+
+<script language="javascript">
+    function openPage(resource_url)
+    {
+        if (resource_url == null || resource_url == "")
+            return;
+        var viewer_html =
+            "<object classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" codebase=\"http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0\" width=\"800\" height=\"95%\" id=\"tree-view\" align=\"middle\">" +
+            "	<param name=\"allowScriptAccess\" value=\"sameDomain\" />" +
+            "	<param name=\"movie\" value=\"image_viewer.swf?image="+ resource_url +"\" />" +
+            "	<param name=\"quality\" value=\"high\" />" +
+            "	<param name=\"scale\" value=\"noscale\" />" +
+            "	<param name=\"salign\" value=\"lt\" />" +
+            "	<param name=\"bgcolor\" value=\"#ffffff\" />" +
+            "	<embed src=\"image_viewer.swf?image=" + resource_url + "\" quality=\"high\" scale=\"noscale\" salign=\"lt\" bgcolor=\"#ffffff\" width=\"800\" height=\"95%\" name=\"tree-view\" align=\"middle\" allowscriptaccess=\"sameDomain\" type=\"application/x-shockwave-flash\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" />" 
+            + "</object>";
+        document.getElementById("viewer").innerHTML = viewer_html;
+    }
+</script>
+
+Note that the page_dial component is not limited to this function.
+

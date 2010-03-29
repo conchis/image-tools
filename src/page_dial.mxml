@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+		xmlns:mx="http://www.adobe.com/2006/mxml" 
+		xmlns:pd="origami.page_dial.*"
+		layout="absolute" backgroundColor="#FFFFFF"
+		creationComplete="initializeViewer()" height="85">
+	<pd:PageDial left="0" top="0" right="0" height="85" id="dial" backgroundColor="#FFFFFF"
+		 verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+	<mx:Script>
+		<![CDATA[
+			
+			public function initializeViewer(): void
+			{
+				var parameters: Object = Application.application.parameters;
+				dial.parameters = parameters;
+			}
+		]]>
+	</mx:Script> 
+</mx:Application>

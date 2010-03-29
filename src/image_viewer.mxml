@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+		xmlns:mx="http://www.adobe.com/2006/mxml" 
+		xmlns:vw="origami.viewer.*"		
+		layout="absolute" backgroundColor="#020202"
+		creationComplete="initializeViewer()">
+	<vw:ImageViewer id="viewer" left="0" top="0" right="0" bottom="0">
+	</vw:ImageViewer>
+	<mx:Script>
+		<![CDATA[
+			
+			public function initializeViewer(): void
+			{
+				var parameters: Object = Application.application.parameters;
+				viewer.parameters = parameters;
+			}
+		]]>
+	</mx:Script> 		
+</mx:Application>
