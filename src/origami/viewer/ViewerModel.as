@@ -18,7 +18,7 @@ package origami.viewer
 {
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
-
+	
 	/**
 	 * Application model for the viewer state. Manages information about the viewer
 	 * mode.
@@ -27,78 +27,80 @@ package origami.viewer
 	 */
 
 	public class ViewerModel extends EventDispatcher
-	{
+	{			
 		/** Constant for mode when mouse is used for zooming in. */
 		public static const ZOOM_IN_MODE:  int = 1;
-
+		
 		/** Constant for mode when mouse is used for zooming out. */
 		public static const ZOOM_OUT_MODE: int = 2;
-
+		
 		/** Constant for mode when mouse is used for panning. */
 		public static const PAN_MODE:      int = 0;
-
+		
+		/**	Constant for no mode selected. */
+		public static const NO_MODE:	   int = -1;
+		
 		/** Zoom or pan mode. */
 		private var __mode: int = ZOOM_IN_MODE;
-
+		
 		/** Mode stack. */
 		private var __mode_stack: Array = new Array();
-
+		
 		/**
 		 * Constructs a ViewerModel.
 		 */
-
+		
 		public function ViewerModel()
 		{
 			super(null);
 		}
-
+		
 		/**
 		 * Sets the viewer mode. Clears any temporary changes that have been
 		 * pushed into the stack.
-		 *
+		 * 
 		 * @param mode new mode value
 		 */
-
+		
 		public function set mode(mode: int): void
 		{
-			var prior_mode: int = __mode;
 			__mode = mode;
 			__mode_stack = new Array();
 			dispatchEvent(new Event(Event.CHANGE));
 		}
-
+		
 		/**
 		 * Returns the current mode value.
-		 *
+		 * 
 		 * @return mode value
 		 */
-
+		
 		public function get mode(): int
 		{
 			return __mode;
 		}
-
+		
 		/**
 		 * Temporarily sets a new mode. The new mode can be removed and the mode
 		 * revered to the old mode by calling pop.
-		 *
+		 * 
 		 * @parm mode new temporary mode
 		 */
-
+		
 		public function pushMode(mode: int): void
 		{
 			__mode_stack.push(__mode);
 			__mode = mode;
 			dispatchEvent(new Event(Event.CHANGE));
 		}
-
+		
 		/**
-		 * Removes a temporary mode. Reverts to the mode that was set before the
+		 * Removes a temporary mode. Reverts to the mode that was set before the 
 		 * temporary mode was added. Returns the mode prior to reverting.
-		 *
+		 * 
 		 * @return mode prior to reverting
 		 */
-
+		
 		public function popMode(): int
 		{
 			var prior: int = __mode;
@@ -106,13 +108,13 @@ package origami.viewer
 			dispatchEvent(new Event(Event.CHANGE));
 			return prior;
 		}
-
+		
 		/**
 		 * Returns true if current mode is temporary (that is has been pushed.)
-		 *
+		 * 
 		 * @return true if mode is temporary, false otherwise.
 		 */
-
+		 
 		public function isTemporaryMode(): Boolean
 		{
 			return __mode_stack.length > 0;

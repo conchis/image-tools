@@ -16,34 +16,33 @@
 
 package origami.viewer
 {
+	import flash.display.BlendMode;
 	import flash.events.MouseEvent;
-
+	
 	import mx.containers.Canvas;
 	import mx.managers.CursorManager;
-
+	
 	import origami.geometry.Rectangle;
 
 	public class SelectionRectangle extends Canvas
 	{
-		/** Color of selection rectangle. */
-		public static const LINE_COLOR: int = 0x00FF00;
-
 		/** Arrow mouse cursor. */
-		[Embed(source="../assets/viewer.swf", symbol="viewerArrowPointer")]
+		[Embed(source="../assets/viewer.swf", symbol="viewerArrowPointer")] 
 		private var arrowPointer: Class;
-
+		
 		/** ID of current mouse pointer. */
 		private var cursor_id: Number;
-
+		
 		/**
 		 * Constructs a SelectionRectangle.
 		 */
-
+		
 		public function SelectionRectangle()
 		{
 			super();
+			blendMode = BlendMode.INVERT;
 		}
-
+		
 		/**
 		 * Shows the selection rectangle at a specified location and starts tracking
 		 * the mouse to find the selection size.
@@ -51,7 +50,7 @@ package origami.viewer
 		 * @param x x position of selection
 		 * @param y y position of selections
 		 */
-
+		
 		public function showAt(x: Number, y: Number): void
 		{
 			this.x = x;
@@ -60,65 +59,65 @@ package origami.viewer
 			this.height = 0;
 			visible = true;
 			parent.setChildIndex(this, parent.numChildren - 1);
-
+			
 			parent.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
 			parent.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
-
+			
 			updateDisplayList(width, height);
 			cursor_id = CursorManager.setCursor(arrowPointer, 1);
 		}
-
+		
 		/**
 		 * Tracks mouse movements by adjusting the size of the selection rectangle.
-		 *
+		 * 
 		 * @param event mouse event
 		 */
-
+		
 		private function onMouseMove(event: MouseEvent): void
 		{
 			width = mouseX;
 			height = mouseY;
 			updateDisplayList(width, height);
 		}
-
+		
 		/**
-		 * Finishes tracking the mouse, making the seleciton rectangle invisible.
+		 * Finishes tracking the mouse, making the seleciton rectangle invisible. 
 		 * Dispatches a SelectionEvent with the selection rectangle.
-		 *
+		 * 
 		 * @param event mouse event
 		 */
-
+		
 		private function onMouseUp(event: MouseEvent): void
 		{
 			// Hide selection rectangle
 			visible = false;
-
+			
 			// Remove listeners
 			parent.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
 			parent.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
-
+			
 			// Reset mouse pointer
 			CursorManager.removeCursor(cursor_id);
-
+			
 			// Signal selection to listeners
 			this.dispatchEvent(
 				new SelectionEvent(Rectangle.makeLeftTopWidthHeight(x, y, width, height)));
 		}
-
+		
 		/**
 		 * Draws the view.
 		 */
-
+		 
 		override protected function updateDisplayList(width: Number, height: Number): void
 		{
 			graphics.clear();
-			graphics.lineStyle(0, LINE_COLOR, 100);
+			graphics.lineStyle(1);
 			graphics.moveTo(    0,      0);
 			graphics.lineTo(width,      0);
 			graphics.lineTo(width, height);
 			graphics.lineTo(    0, height);
 			graphics.lineTo(    0,      0);
 		}
-
+		
 	}
 }
