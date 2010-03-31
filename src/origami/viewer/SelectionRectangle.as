@@ -16,7 +16,6 @@
 
 package origami.viewer
 {
-	import flash.display.BlendMode;
 	import flash.events.MouseEvent;
 	
 	import mx.containers.Canvas;
@@ -40,7 +39,6 @@ package origami.viewer
 		public function SelectionRectangle()
 		{
 			super();
-			blendMode = BlendMode.INVERT;
 		}
 		
 		/**
@@ -111,7 +109,7 @@ package origami.viewer
 		override protected function updateDisplayList(width: Number, height: Number): void
 		{
 			graphics.clear();
-			graphics.lineStyle(1);
+			graphics.lineStyle(1, 0x00ff00);
 			graphics.moveTo(    0,      0);
 			graphics.lineTo(width,      0);
 			graphics.lineTo(width, height);

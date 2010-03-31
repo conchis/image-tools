@@ -148,7 +148,6 @@ package origami.viewer
 			
 			// Add canvas for drawing selection
 			selection_canvas = new Canvas();
-			selection_canvas.blendMode = BlendMode.INVERT;
 			addChild(selection_canvas);
 			
 			this.width = thumbnail.width;
@@ -225,7 +224,7 @@ package origami.viewer
 			var graphics: Graphics = selection_canvas.graphics;
 			graphics.clear();		
 			var view_polygon: Polygon = viewport.clipped_view_polygon.project(navigator_transfrom);
-			graphics.lineStyle(1);			
+			graphics.lineStyle(1, 0xff0000);			
 			view_polygon.drowOn(selection_canvas.graphics);
 		}
 		
@@ -268,6 +267,15 @@ package origami.viewer
 			
 			// Tell viewport of change
 			viewport.dispatchEvent(new Event(Viewport.CHANGED));
+		}
+		
+		/**
+		 * Sets invert blend mode for the selection canvas.
+		 */
+		 
+		public function setInvertBlendMode (): void
+		{
+			selection_canvas.blendMode = BlendMode.INVERT;
 		}
 		
 	}

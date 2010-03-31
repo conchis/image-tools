@@ -68,8 +68,6 @@ package origami.viewer
 		public function StackedViewer ()
 		{
 			super();
-			horizontalScrollPolicy = "off";
-			verticalScrollPolicy = "off";
 			addEventListener(ResizeEvent.RESIZE, onResize);
 		}
 		

@@ -16,6 +16,7 @@
 
 package origami.viewer
 {
+	import flash.display.BlendMode;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
@@ -56,7 +57,11 @@ package origami.viewer
 		
 		public function Viewer()
 		{
-			super();			
+			super();	
+					
+			horizontalScrollPolicy = "off";
+			verticalScrollPolicy = "off";
+			
 			__viewer_model = new ViewerModel();
 			__viewer_model.addEventListener(Event.CHANGE, updateMousePointer);
 			
@@ -368,6 +373,15 @@ package origami.viewer
 		private function stepAnimation(event: Event): void
 		{
 			viewport.stepAnimation();
+		}
+		
+		/**
+		 * Sets invert blend mode for the selection rectangle.
+		 */
+		 
+		public function setInvertBlendMode (): void
+		{
+			selection_rectangle.blendMode = BlendMode.INVERT;
 		}
 		
 	}
