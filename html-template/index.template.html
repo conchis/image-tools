@@ -78,7 +78,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 	// if we've detected an acceptable version
 	// embed the Flash Content SWF when all tests are passed
 	AC_FL_RunContent(
-			"src", "${swf}?image=file:///Users/jonathan/Sites/Robinson&monitor=false&id=start",
+			"src", "${swf}?image=http://localhost/~jln/vistools/images/robinson",
 			"width", "${width}",
 			"height", "${height}",
 			"align", "middle",
@@ -111,11 +111,11 @@ if ( hasProductInstall && !hasRequestedVersion ) {
   	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
 			id="${application}" width="${width}" height="${height}"
 			codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
-			<param name="movie" value="${swf}.swf" />
+			<param name="movie" value="${swf}.swf?image=http://localhost/~jln/vistools/images/robinson" />
 			<param name="quality" value="high" />
 			<param name="bgcolor" value="${bgcolor}" />
 			<param name="allowScriptAccess" value="sameDomain" />
-			<embed src="${swf}.swf" quality="high" bgcolor="${bgcolor}"
+			<embed src="${swf}.swf?image=http://localhost/~jln/vistools/images/robinson" quality="high" bgcolor="${bgcolor}"
 				width="${width}" height="${height}" name="${application}" align="middle"
 				play="true"
 				loop="false"

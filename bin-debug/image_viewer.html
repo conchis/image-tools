@@ -37,7 +37,7 @@ var requiredMajorVersion = 9;
 // Minor version of Flash required
 var requiredMinorVersion = 0;
 // Minor version of Flash required
-var requiredRevision = 28;
+var requiredRevision = 124;
 // -----------------------------------------------------------------------------
 // -->
 </script>
@@ -78,7 +78,7 @@ if ( hasProductInstall && !hasRequestedVersion ) {
 	// if we've detected an acceptable version
 	// embed the Flash Content SWF when all tests are passed
 	AC_FL_RunContent(
-			"src", "image_viewer?image=file:///Users/jonathan/Sites/Robinson&monitor=false&id=start",
+			"src", "image_viewer?image=http://localhost/~jln/vistools/images/robinson",
 			"width", "100%",
 			"height", "100%",
 			"align", "middle",
@@ -111,11 +111,11 @@ if ( hasProductInstall && !hasRequestedVersion ) {
   	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
 			id="image_viewer" width="100%" height="100%"
 			codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
-			<param name="movie" value="image_viewer.swf" />
+			<param name="movie" value="image_viewer.swf?image=http://localhost/~jln/vistools/images/robinson" />
 			<param name="quality" value="high" />
 			<param name="bgcolor" value="#020202" />
 			<param name="allowScriptAccess" value="sameDomain" />
-			<embed src="image_viewer.swf" quality="high" bgcolor="#020202"
+			<embed src="image_viewer.swf?image=http://localhost/~jln/vistools/images/robinson" quality="high" bgcolor="#020202"
 				width="100%" height="100%" name="image_viewer" align="middle"
 				play="true"
 				loop="false"
