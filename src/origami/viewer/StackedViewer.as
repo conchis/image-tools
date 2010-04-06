@@ -20,11 +20,8 @@ package origami.viewer
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	
-	import mx.containers.Canvas;
 	import mx.events.ResizeEvent;
 	
-	import origami.geometry.Dimensions;
-	import origami.spatial.Viewport;
 	import origami.tiled_image.ImageModel;
 	import origami.tiled_image.TiledImage;
 	
@@ -62,6 +59,14 @@ package origami.viewer
 		/**	Image models. */
 		
 		private var imageModels: Array = new Array();
+		
+		/**	True if busy loading new images. */
+		
+		private var busy: Boolean;
+		
+		/**	Pending new image urls, or null if none. */
+		
+		private var pendingUrls: Array;
 		
 		/**	Creates a new stacked viewer. */
 	 
@@ -123,6 +128,12 @@ package origami.viewer
 		 
 		public function setImageUrls (urls: Array): void
 		{
+			if (busy) {
+				pendingUrls = urls;
+				return;
+			}
+			busy = true;
+			navigator.reset();
 			numImages = urls.length;
 			numImageModelsLoaded = 0;
 			tiledImages = new Array();
@@ -147,6 +158,13 @@ package origami.viewer
 			if (numImageModelsLoaded == numImages) createTiledImages();
 		}
 		
+		private function loadPendingUrls (): void
+		{
+			busy = false;
+			if (pendingUrls != null) setImageUrls(pendingUrls);
+			pendingUrls = null;
+		}
+		
 		/**	Handles IO error events.
 		 * 
 		 *  @param	event		IO error event.
@@ -154,6 +172,7 @@ package origami.viewer
 		 
 		protected function onIOError (event: IOErrorEvent): void
 		{
+			loadPendingUrls();
 			dispatchEvent(event);
 		}
 		
@@ -192,6 +211,7 @@ package origami.viewer
 		{
 			var thumbnail: Thumbnail = navigator.getThumbnail();
 			thumbnail.removeEventListener(Event.COMPLETE, onThumbnailInitialized);
+			loadPendingUrls();
 			dispatchEvent(new Event(Event.COMPLETE));
 		}
 		

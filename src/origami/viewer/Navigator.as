@@ -492,6 +492,22 @@ package origami.viewer
 			dispatchEvent(event);
 		}
 		
+		/**	Resets the navigator. */
+		
+		public function reset (): void
+		{
+			__image_model = null;
+		}
+		
+		/**
+		 * Hides the rotation controls.
+		 */
+		 
+		public function hideRotationControls (): void
+		{
+			rotation_wheel.visible = false;
+		}
+		
 		/**
 		 * Sets tool tips.
 		 * 

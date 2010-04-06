@@ -126,6 +126,10 @@ package origami.spatial
 		{
 			this.scene_size = scene_size;
 			this.initial_scene_size = scene_size;
+			var was_zoomed_out: Boolean = (scale == minimum_scale);
+			setMinimumScale();
+			if (was_zoomed_out || scale < minimum_scale)
+				scale = minimum_scale;
 			update();
 			if (is_initialized) 
 				this.dispatchEvent(new Event(CHANGED));
@@ -212,6 +216,7 @@ package origami.spatial
 		 
 		private function setMinimumScale(): void
 		{
+			if (!is_initialized) return;
 			var horizontal_scale: Number = view_size.width / initial_scene_size.width;
 			var vertical_scale: Number = view_size.height / initial_scene_size.height; 
 			minimum_scale = Math.min(horizontal_scale, vertical_scale);

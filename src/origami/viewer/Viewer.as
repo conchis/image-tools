@@ -17,10 +17,13 @@
 package origami.viewer
 {
 	import flash.display.BlendMode;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
+	import flash.geom.Point;
 	
+	import mx.events.MoveEvent;
 	import mx.events.ResizeEvent;
 	import mx.managers.CursorManager;
 	
@@ -57,7 +60,7 @@ package origami.viewer
 		
 		public function Viewer()
 		{
-			super();	
+			super();
 					
 			horizontalScrollPolicy = "off";
 			verticalScrollPolicy = "off";
@@ -71,6 +74,7 @@ package origami.viewer
 			addEventListener(Event.MOUSE_LEAVE, onPanRelease);
 			
 			addEventListener(ResizeEvent.RESIZE, onResize);
+			addEventListener(MoveEvent.MOVE, onMove);
 			addEventListener(Event.ADDED_TO_STAGE, initializeKeyboard);
 			
 			// Change cursor on mouse over, out
@@ -135,6 +139,37 @@ package origami.viewer
 			
 			viewport.setViewSize(Dimensions.makeWidthHeight(width, height));
 			invalidateDisplayList();
+			setMask();
+		}
+		
+		/**
+		 * Called when the component is moved.
+		 * 
+		 * @param event	move event
+		 */
+		 
+		private function onMove (event: MoveEvent): void
+		{
+			setMask();
+		}
+		
+		/**
+		 * Sets a mask so that tiles are not drawn outside the view.
+		 */
+		 
+		private function setMask (): void
+		{
+			var maskObj: Sprite = new Sprite();
+			with (maskObj.graphics) {
+				lineStyle(1, 0);
+				beginFill(0);
+				drawRect(0, 0, width, height);
+				endFill();
+			}
+			var origin: flash.geom.Point = localToGlobal(new flash.geom.Point(0,0));
+			maskObj.x = origin.x;
+			maskObj.y = origin.y;
+			mask = maskObj;
 		}
 		
 		// **** Mouse Tracking
@@ -151,7 +186,7 @@ package origami.viewer
 			switch(__viewer_model.mode)
 			{
 				case ViewerModel.PAN_MODE:
-					viewport.startPan(Point.makeXY(mouseX, mouseY));
+					viewport.startPan(origami.geometry.Point.makeXY(mouseX, mouseY));
 					addEventListener(MouseEvent.MOUSE_MOVE, onPanMove);
 					addEventListener(MouseEvent.MOUSE_UP, onPanRelease);
 					break;
@@ -169,7 +204,7 @@ package origami.viewer
 		 
 		private function onPanMove(event: MouseEvent): void
 		{
-			viewport.pan(Point.makeXY(mouseX, mouseY));
+			viewport.pan(origami.geometry.Point.makeXY(mouseX, mouseY));
 		}
 		
 		/**

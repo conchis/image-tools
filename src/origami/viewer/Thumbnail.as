@@ -21,6 +21,7 @@ package origami.viewer
 	import flash.display.BlendMode;
 	import flash.display.Graphics;
 	import flash.display.Loader;
+	import flash.display.LoaderInfo;
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	import flash.events.MouseEvent;
@@ -43,17 +44,15 @@ package origami.viewer
 
 	public class Thumbnail extends UIComponent
 	{
-		/** Width of thumbail image. */
+		/** Width and height of thumbail. */
 		public static const THUMBNAIL_WIDTH: int = 150;
+		public static const THUMBNAIL_HEIGHT: int = 180;
 		
 		/** Viewport model for this viewer controled by this view. */
 		private var __viewport: Viewport;
 		
 		/** URL of the thumbnail image. */
 		private var __thumbnail_url: String;
-		
-		/** Image loader. */
-		private var loader: Loader;
 		
 		/** Thumbnail iamge. */
 		private var thumbnail: Bitmap;
@@ -75,7 +74,7 @@ package origami.viewer
 		{
 			super();
 			width = THUMBNAIL_WIDTH;
-			
+			height = THUMBNAIL_HEIGHT;
 			addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);			
 		}
 		
@@ -115,7 +114,7 @@ package origami.viewer
 		{
 			__thumbnail_url = thumbnail_url;
 			
-			loader = new Loader();
+			var loader: Loader = new Loader();
 			loader.contentLoaderInfo.addEventListener(Event.INIT, onImageLoaded);
 			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, onIOError);
 			loader.load(new URLRequest(thumbnail_url));
@@ -140,7 +139,11 @@ package origami.viewer
 		
 		private function onImageLoaded(event: Event): void
 		{
+			var loaderInfo: LoaderInfo = LoaderInfo(event.target);
+			var loader: Loader = loaderInfo.loader;
+
 			if (thumbnail) removeChild(thumbnail);
+			if (selection_canvas) removeChild(selection_canvas);
 			
 			// Add thumbnail graphics
 			thumbnail = Bitmap(loader.content);
@@ -150,8 +153,15 @@ package origami.viewer
 			selection_canvas = new Canvas();
 			addChild(selection_canvas);
 			
-			this.width = thumbnail.width;
-			this.height = thumbnail.height;
+			var tw: Number = thumbnail.width;
+			var th: Number = thumbnail.height;
+			if (THUMBNAIL_WIDTH/tw*th <= THUMBNAIL_HEIGHT) {
+				thumbnail.width = THUMBNAIL_WIDTH;
+				thumbnail.height = THUMBNAIL_WIDTH/tw*th;
+			} else {
+				thumbnail.width = THUMBNAIL_HEIGHT/th*tw;
+				thumbnail.height = THUMBNAIL_HEIGHT;
+			}
 			
 			// Force parent view to redraw with thumbnail in correct position
 			UIComponent(parent).invalidateDisplayList();
@@ -201,7 +211,8 @@ package origami.viewer
 		private function updateTransforms(): void
 		{	
 			var scene_size: Dimensions = viewport.initial_scene_size;
-			var scale: Number = THUMBNAIL_WIDTH / scene_size.width;
+			var scale: Number = Math.min(THUMBNAIL_WIDTH / scene_size.width,
+				THUMBNAIL_HEIGHT / scene_size.height);
 			navigator_transfrom = Transform.makeScale(scale, scale);
 			scene_transform = navigator_transfrom.inverse();
 		}
