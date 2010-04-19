@@ -32,6 +32,9 @@ package origami.viewer
 		/** ID of current mouse pointer. */
 		private var cursor_id: Number;
 		
+		/**	Rectangle color. */
+		private var color: int = 0x00ff00;
+		
 		/**
 		 * Constructs a SelectionRectangle.
 		 */
@@ -109,12 +112,21 @@ package origami.viewer
 		override protected function updateDisplayList(width: Number, height: Number): void
 		{
 			graphics.clear();
-			graphics.lineStyle(1, 0x00ff00);
+			graphics.lineStyle(1, color);
 			graphics.moveTo(    0,      0);
 			graphics.lineTo(width,      0);
 			graphics.lineTo(width, height);
 			graphics.lineTo(    0, height);
 			graphics.lineTo(    0,      0);
+		}
+		
+		/**
+		 * Sets the rectangle color.
+		 */
+		 
+		public function setColor (color: int): void
+		{
+			this.color = color;
 		}
 		
 	}

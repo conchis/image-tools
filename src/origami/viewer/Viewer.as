@@ -414,9 +414,20 @@ package origami.viewer
 		 * Sets invert blend mode for the selection rectangle.
 		 */
 		 
-		public function setInvertBlendMode (): void
+		public function setSelectionRectangleInvertBlendMode (): void
 		{
 			selection_rectangle.blendMode = BlendMode.INVERT;
+		}
+		
+		/**
+		 * Sets the color of the selection rectangle.
+		 * 
+		 * @param color Selection rectangle color.
+		 */
+		 
+		public function setSelectionRectangleColor (color: int): void
+		{
+			selection_rectangle.setColor(color);
 		}
 		
 	}

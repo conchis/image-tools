@@ -60,6 +60,9 @@ package origami.viewer
 		/** Canvas for drawing selection rectangle. */
 		private var selection_canvas: Canvas;
 		
+		/** Color of selection rectangle. */
+		private var selection_canvas_color: int = 0xff0000;
+		
 		/** Transform from scene to naviagtor coordinates. */
 		private var navigator_transfrom: Transform;
 		
@@ -235,7 +238,7 @@ package origami.viewer
 			var graphics: Graphics = selection_canvas.graphics;
 			graphics.clear();		
 			var view_polygon: Polygon = viewport.clipped_view_polygon.project(navigator_transfrom);
-			graphics.lineStyle(1, 0xff0000);			
+			graphics.lineStyle(1, selection_canvas_color);			
 			view_polygon.drowOn(selection_canvas.graphics);
 		}
 		
@@ -284,9 +287,20 @@ package origami.viewer
 		 * Sets invert blend mode for the selection canvas.
 		 */
 		 
-		public function setInvertBlendMode (): void
+		public function setSelectionCanvasInvertBlendMode (): void
 		{
 			selection_canvas.blendMode = BlendMode.INVERT;
+		}
+		
+		/**
+		 * Sets the color of the selection canvas.
+		 *
+		 * @param color Selection canvas color.
+		 */
+		 
+		public function setSelectionCanvasColor (color: int): void
+		{
+			selection_canvas_color = color;
 		}
 		
 	}
