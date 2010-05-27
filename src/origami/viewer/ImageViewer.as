@@ -57,7 +57,7 @@ package origami.viewer
 		private var initial_bounds: Rectangle;
 		
 		/** Initial rotation. */
-		private var initial_rotation: Number;
+		private var initial_rotation: Number = 0;
 		
 		/** True only if monitoring view changes. */
 		private var is_monitoring: Boolean = false;
@@ -263,6 +263,16 @@ package origami.viewer
 		protected function onIOError (event: IOErrorEvent): void
 		{
 			//Alert.show(event.text, "Image Server Error");
+		}
+		
+		/**	Gets the tiled image.
+		 * 
+		 *  @return			The tiled image.
+		 */
+		 
+		public function getTiledImage (): TiledImage
+		{
+			return tiled_image;
 		}
 		
 	}
