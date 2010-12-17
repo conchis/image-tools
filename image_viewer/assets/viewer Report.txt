@@ -1,0 +1,50 @@
+viewer.swf Movie Report
+------------------------
+
+Frame #    Frame Bytes    Total Bytes    Scene
+-------    -----------    -----------    ----------------
+      1           2996           2996    Scene 1 (AS 2.0 Classes Export Frame)
+
+Scene                        Shape Bytes    Text Bytes    ActionScript Bytes
+-------------------------    -----------    ----------    ------------------
+Scene 1                                0             0                     0
+
+Symbol                       Shape Bytes    Text Bytes    ActionScript Bytes
+-------------------------    -----------    ----------    ------------------
+Arrow                                 23             0                     0
+Wheel                                 75             0                     0
+100 RulerHandle                       80             0                     0
+800 Icon Paper                         0             0                     0
+810 ZoomControlsIcon                   0             0                     0
+305 ArrowPointerMask                  54             0                     0
+300 ArrowPointer                      31             0                     0
+225 HandPointerMask                   69             0                     0
+215 ZoomOutMask                       96             0                     0
+205 ZoomInMask                        71             0                     0
+940 NoteIcon                           0             0                     0
+410 RedNoteIcon                       61             0                     0
+420 GreenNoteIcon                     56             0                     0
+440 BlueNoteIcon                      56             0                     0
+450 YellowNoteIcon                    56             0                     0
+460 GrayNoteIcon                      56             0                     0
+910 InButtonIcon                      29             0                     0
+950 RulerIcon                         35             0                     0
+920 OutButtonIcon                     20             0                     0
+210 ZoomOutPointer                   103             0                     0
+930 ResetButtonIcon                   54             0                     0
+200 ZoomInPointer                     85             0                     0
+110 ZoomIcon                          63             0                     0
+220 HandPointer                       57             0                     0
+100 PanIcon                            0             0                     0
+200 ThumbOpenIcon                     42             0                     0
+210 ThumbCloseIcon                    62             0                     0
+300 RotateLeftIcon                   128             0                     0
+310 RotateRightIcon                  127             0                     0
+100 RewindIcon                        72             0                     0
+200 BackIcon                          49             0                     0
+300 Forward Icon                      49             0                     0
+400 EndIcon                           72             0                     0
+
+
+
+

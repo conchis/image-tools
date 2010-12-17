@@ -9,6 +9,7 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
+    <application path="test.mxml"/>
     <application path="image_viewer.mxml"/>
   </applications>
   <modules/>

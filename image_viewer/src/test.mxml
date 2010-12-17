@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+    xmlns:flexunit="flexunit.flexui.*" 
+    creationComplete="onCreationComplete()">
+    
+    <mx:Script>
+        <![CDATA[
+        	import origami.expressions.testing.AssertionTest;
+			import origami.expressions.testing.CompilerTest;
+			import origami.expressions.testing.ExpressionTest;
+			import origami.expressions.testing.TemplateTest;
+			import origami.expressions.testing.TokenizerTest;
+			
+			import origami.geometry.testing.DimensionsTest;
+			import origami.geometry.testing.PointTest;
+			import origami.geometry.testing.PolygonTest;
+			import origami.geometry.testing.RectangleTest;
+			import origami.geometry.testing.TransformTest;
+			
+			import origami.spatial.testing.PyramidTest;
+			import origami.spatial.testing.ViewportTest;
+			
+			import origami.trees.testing.TreeNodeTest;
+			import origami.page_dial.testing.OutlineTest;
+			
+		    import flexunit.framework.TestSuite;
+
+            private function onCreationComplete(): void
+            {
+				var suite: TestSuite = new TestSuite();
+				
+				suite.addTest(AssertionTest.suite());
+				suite.addTest(CompilerTest.suite());
+				suite.addTest(ExpressionTest.suite());
+				suite.addTest(TemplateTest.suite());
+				suite.addTest(TokenizerTest.suite());	
+				
+				suite.addTest(DimensionsTest.suite());
+				suite.addTest(PointTest.suite());
+				suite.addTest(PolygonTest.suite());
+				suite.addTest(RectangleTest.suite());
+				suite.addTest(TransformTest.suite());	
+				suite.addTest(PyramidTest.suite());
+				suite.addTest(ViewportTest.suite());
+				
+				suite.addTest(TreeNodeTest.suite());
+				suite.addTest(OutlineTest.suite());
+																				
+                testRunner.test = suite;
+                testRunner.startTest();
+            }
+        ]]>
+    </mx:Script>    
+    <flexunit:TestRunnerBase id="testRunner" width="100%" height="100%" />
+
+</mx:Application>
